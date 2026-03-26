@@ -279,17 +279,113 @@
   .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* Responsive */
+  /* ──────────────────────────────────────────
+     Responsive Design
+     Breakpoints:
+       Mobile  : ≤ 480px
+       Tablet  : 481px – 1024px
+       Laptop  : > 1024px (default styles)
+  ────────────────────────────────────────── */
+
+  /* Touch devices – disable custom cursor */
+  @media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+    #cursor, #cursor-ring { display: none; }
+  }
+
+  /* ── Tablet (481px – 1024px) ── */
+  @media (max-width: 1024px) {
+    nav { padding: 14px 32px; }
+
+    #hero {
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    .hero-left { padding: 60px 40px 60px 48px; }
+    .hero-circles .hc1 { width: 380px; height: 380px; }
+    .hero-circles .hc2 { width: 280px; height: 280px; }
+    .hero-circles .hc3 { width: 180px; height: 180px; }
+
+    section { padding: 72px 48px; }
+
+    .about-grid { gap: 48px; }
+    .pub-card { padding: 32px; gap: 24px; }
+
+    .edu-grid { grid-template-columns: 1fr 1fr; }
+
+    footer { padding: 36px 48px; }
+  }
+
+  /* ── Small tablet / large phone (max 860px) ── */
   @media (max-width: 860px) {
-    nav { padding: 14px 20px; }
+    nav { padding: 14px 24px; }
     .nav-links { display: none; }
+
     #hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
-    .hero-left { padding: 48px 24px; }
-    section { padding: 64px 24px; }
-    .about-grid, .edu-grid { grid-template-columns: 1fr; }
+    .hero-left { padding: 52px 28px; }
+    .scroll-hint { left: 28px; }
+
+    section { padding: 64px 28px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .edu-grid { grid-template-columns: 1fr; }
     .pub-card { grid-template-columns: 1fr; }
-    footer { flex-direction: column; padding: 36px 24px; }
+
+    footer { flex-direction: column; align-items: flex-start; padding: 36px 28px; gap: 16px; }
+  }
+
+  /* ── Mobile (max 480px) ── */
+  @media (max-width: 480px) {
+    nav { padding: 12px 16px; }
+    .nav-logo { font-size: 1rem; }
+
+    #hero { padding-top: 60px; }
+    .hero-left { padding: 36px 16px 48px; }
+    .hero-name { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+    .hero-desc { font-size: 0.92rem; }
+    .hero-btns { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; text-align: center; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .scroll-hint { left: 16px; }
+
+    section { padding: 52px 16px; }
+
+    .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+    .section-subtitle { font-size: 0.9rem; margin-bottom: 36px; }
+
+    /* Skills grid – single column on very small screens */
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-card { padding: 22px; }
+
+    /* Competencies – full width */
+    .comp-grid { grid-template-columns: 1fr; }
+
+    /* Projects – single column */
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { padding: 24px; }
+
+    /* Publication */
+    .pub-card { padding: 24px; }
+    .pub-icon { width: 48px; height: 48px; font-size: 1.1rem; }
+    .pub-title { font-size: 1.05rem; }
+
+    /* Education */
+    .edu-grid { grid-template-columns: 1fr; }
+    .edu-card { padding: 24px; }
+
+    /* About */
+    .about-grid { gap: 28px; }
+    .contact-card { padding: 12px 14px; }
+
+    /* Experience */
+    .exp-header { flex-direction: column; gap: 4px; }
+    .exp-date { align-self: flex-start; }
+    .exp-role { font-size: 1rem; }
+
+    /* Footer */
+    footer { padding: 28px 16px; gap: 14px; }
+    .footer-links { flex-wrap: wrap; gap: 14px; }
   }
 </style>
 </head>
@@ -307,7 +403,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="mailto:anaswaramurali5@gmail.com" class="nav-cta">Hire Me</a></li>
+
   </ul>
 </nav>
 
